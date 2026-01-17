@@ -19,133 +19,97 @@ View your app in AI Studio: https://ai.studio/apps/drive/1a87bc0tmmTBmf7dxQ7g9Qa
 3. Run the app:
    `npm run dev`
 
-🛡️ EarlyShield Campus
+# 🛡️ EarlyShield Campus
 
-EarlyShield is an AI-powered campus intelligence and early risk management platform designed to help institutions detect and address issues before they escalate into major disruptions.
+**EarlyShield** is an AI-powered campus intelligence and early risk management platform designed to help institutions detect and address issues *before* they escalate into major disruptions.
 
-🚀 Problem Statement
+**Tagline:** Prevention before disruption.
 
-Educational institutions rely on enterprise systems that respond after problems occur.
-Small signals such as connectivity issues, facility problems, or operational delays are often ignored or scattered, leading to delayed action and preventable disruptions.
+---
 
-💡 Solution Overview
+## 🚀 Problem Statement
 
-EarlyShield works as a pre-enterprise early warning layer.
-It collects lightweight signals from students and staff, analyzes patterns using Google Gemini AI, and converts noise into actionable, explainable risk intelligence for administrators.
+Educational institutions rely on enterprise systems that respond only after problems occur.  
+Small signals such as connectivity issues, facility problems, or operational delays are often ignored or scattered across informal channels, leading to delayed action and avoidable disruptions.
 
-Tagline: Prevention before disruption.
+---
 
-🧠 Key Features
+## 💡 Solution Overview
 
-Lightweight signal reporting for students and staff
+EarlyShield works as a **pre-enterprise early warning layer**.  
+It collects lightweight signals from students and staff, analyzes patterns using **Google Gemini AI**, and converts noise into **actionable, explainable risk intelligence** for administrators.
 
-AI-driven risk detection using Google Gemini
+---
 
-Signal clustering into high-confidence cases
+## 🧠 Key Features
 
-Institution health dashboard with trends
+- Lightweight signal reporting for students and staff  
+- AI-driven early risk detection using Google Gemini  
+- Signal clustering into high-confidence cases  
+- Institution health dashboard with trends  
+- Interactive risk map with location-aware insights  
+- Explainable AI summaries for administrators  
+- Role-based interfaces (Student, Admin, Management)  
+- SAP-ready escalation workflow (mocked)  
+- Persistent AI assistant for decision support  
 
-Interactive risk map with location-aware insights
+---
 
-Explainable AI summaries for admins
+## 👥 User Roles
 
-Role-based views (Student, Admin, Management)
+- **Student / Staff** – Report issues quickly without friction  
+- **Admin** – Monitor risks, analyze cases, take action  
+- **Management** – View high-level health scores and trends (read-only)
 
-SAP-ready escalation (mocked)
+---
 
-Persistent AI assistant for decision support
+## 🔄 Process Flow
 
-👥 User Roles
+1. Student or staff submits a signal  
+2. Data is stored securely in Firebase Firestore  
+3. Gemini AI analyzes signal frequency and patterns  
+4. Related signals are clustered into cases  
+5. Admin reviews AI insights and risk trends  
+6. Validated cases can be escalated to enterprise systems (SAP)
 
-Student / Staff – Report issues quickly without friction
+---
 
-Admin – Monitor risks, review cases, take action
+## 🧪 Google Technologies Used
 
-Management – View high-level health scores and trends (read-only)
+- Google Gemini (3 Pro Preview, 3 Flash Preview, 2.5 Flash)  
+- Google GenAI SDK (`@google/genai`)  
+- Google AI Studio  
+- Google Maps & Google Maps Grounding  
+- Firebase Firestore  
+- Firebase Admin SDK  
+- Material Design 3  
+- Google Fonts & Material Symbols  
 
-🧩 Process Flow
+---
 
-Student or staff submits a signal
+## 🏗️ Tech Stack
 
-Data stored securely in Firebase
+### Frontend
+- React 18 (TypeScript)
+- Tailwind CSS
+- Material Design 3
 
-Gemini AI analyzes patterns and frequency
+### Backend
+- Firebase Firestore
+- Firebase Admin SDK
 
-Related signals are clustered into cases
+### AI
+- Google Gemini models via GenAI SDK
 
-Admin reviews AI insights
+---
 
-Validated cases can be escalated to enterprise systems
-
-🧪 Google Technologies Used
-
-Google Gemini (3 Pro, 3 Flash, 2.5 Flash)
-
-Google GenAI SDK
-
-Google AI Studio
-
-Google Maps & Maps Grounding
-
-Firebase Firestore
-
-Firebase Admin SDK
-
-Material Design 3
-
-Google Fonts & Material Symbols
-
-🏗️ Tech Stack
-
-Frontend
-
-React 18 (TypeScript)
-
-Tailwind CSS
-
-Material Design 3
-
-Backend
-
-Firebase Firestore
-
-Firebase Admin SDK
-
-AI
-
-Google Gemini models via GenAI SDK
-
-📁 Project Structure
-/src
- ├── components
- ├── pages
- ├── services
- ├── context
- ├── types
- └── assets
-
-🛠️ Setup & Run (Optional)
-npm install
-npm run dev
-
-
-Note: API keys are stored securely using environment variables and are not committed.
-
-🎥 Demo
-
-Demo Video: (add link)
-
-PPT: (add link)
-
-Hackathon Submission: Hyphen ’26
-
-👨‍👩‍👧‍👦 Team Contributions
+## 👨‍👩‍👧‍👦 Team Contributions
 
 AI & Product Design: Concept, AI workflows, Gemini integration logic, UX flow, documentation
 
 Backend & Deployment: Firebase integration, API setup, backend logic, deployment
 
-🔮 Future Scope
+## 🔮 Future Scope
 
 Multi-institution federation
 
@@ -157,6 +121,10 @@ Mobile-first reporting
 
 Cost-impact analytics
 
-📜 License
+## 📜 License
 
-This project is developed as part of a hackathon and is intended for educational and demonstration purposes.
+This project was developed as part of a hackathon and is intended for educational and demonstration purposes.
+
+
+---
+
