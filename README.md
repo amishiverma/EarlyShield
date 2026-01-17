@@ -21,110 +21,84 @@ View your app in AI Studio: https://ai.studio/apps/drive/1a87bc0tmmTBmf7dxQ7g9Qa
 
 # 🛡️ EarlyShield Campus
 
-**EarlyShield** is an AI-powered campus intelligence and early risk management platform designed to help institutions detect and address issues *before* they escalate into major disruptions.
+> **AI-Powered Campus Intelligence & Risk Management Platform**
 
-**Tagline:** Prevention before disruption.
-
----
-
-## 🚀 Problem Statement
-
-Educational institutions rely on enterprise systems that respond only after problems occur.  
-Small signals such as connectivity issues, facility problems, or operational delays are often ignored or scattered across informal channels, leading to delayed action and avoidable disruptions.
+EarlyShield is a modern, real-time web application designed to bridge the gap between campus communities and safety operations. It utilizes **Google Gemini models** to analyze crowdsourced risk signals, cluster incidents, and provide geospatial intelligence, allowing administrators to preemptively address safety and facility issues.
 
 ---
 
-## 💡 Solution Overview
+## 🚀 Key Features
 
-EarlyShield works as a **pre-enterprise early warning layer**.  
-It collects lightweight signals from students and staff, analyzes patterns using **Google Gemini AI**, and converts noise into **actionable, explainable risk intelligence** for administrators.
+### 🧠 AI-Driven Intelligence
+- **Maps Grounding (Gemini 2.5 Flash):** Scans specific campus locations on the map and cross-references them with Google Maps data to generate real-time risk assessments and safety protocols.
+- **Root Cause Analysis (Gemini 3 Flash):** Automatically analyzes clusters of incoming reports (e.g., "WiFi down," "Router blinking") to identify the underlying technical or physical cause.
+- **Conversational Assistant (Gemini 3 Pro):** An embedded chatbot that assists users with safety queries and platform navigation.
 
----
+### 📊 Dynamic Operations Dashboard
+- **Real-Time Signals:** Live feed of incoming reports from students and staff.
+- **Health Scores:** Auto-calculated campus safety scores based on active critical incidents.
+- **Role-Based Views:**
+  - **Admin:** Full operational control, heatmap analysis, and case management.
+  - **Student:** Simplified reporting portal and gamified contribution stats.
+  - **Management:** High-level executive overview and cost-saving metrics.
 
-## 🧠 Key Features
+### 🗺️ Interactive Risk Map
+- **Geospatial Visualization:** Built with **Leaflet**, featuring custom pulse markers for critical zones.
+- **Zone Analysis:** Clickable campus zones (e.g., Labs, Dorms) with detailed status reports.
+- **Hotspot Tracking:** Visual indicators for high-density signal areas.
 
-- Lightweight signal reporting for students and staff  
-- AI-driven early risk detection using Google Gemini  
-- Signal clustering into high-confidence cases  
-- Institution health dashboard with trends  
-- Interactive risk map with location-aware insights  
-- Explainable AI summaries for administrators  
-- Role-based interfaces (Student, Admin, Management)  
-- SAP-ready escalation workflow (mocked)  
-- Persistent AI assistant for decision support  
+### 📝 Reporting & Case Management
+- **Smart Wizard:** 3-step reporting flow for students to categorize and geolocate issues.
+- **Kanban/Case View:** Detailed dive into specific incidents with timeline tracking.
+- **Integration Bridge:** Mock setup for exporting data to enterprise systems like SAP Solution Manager.
 
----
-
-## 👥 User Roles
-
-- **Student / Staff** – Report issues quickly without friction  
-- **Admin** – Monitor risks, analyze cases, take action  
-- **Management** – View high-level health scores and trends (read-only)
-
----
-
-## 🔄 Process Flow
-
-1. Student or staff submits a signal  
-2. Data is stored securely in Firebase Firestore  
-3. Gemini AI analyzes signal frequency and patterns  
-4. Related signals are clustered into cases  
-5. Admin reviews AI insights and risk trends  
-6. Validated cases can be escalated to enterprise systems (SAP)
+### 🔐 Authentication & Security
+- **Firebase Auth:** Secure Google Sign-In integration.
+- **Guest/Demo Mode:** Full functionality simulator for testing without credentials.
+- **Firestore Real-time DB:** Instant updates across all connected clients.
 
 ---
 
-## 🧪 Google Technologies Used
-
-- Google Gemini (3 Pro Preview, 3 Flash Preview, 2.5 Flash)  
-- Google GenAI SDK (`@google/genai`)  
-- Google AI Studio  
-- Google Maps & Google Maps Grounding  
-- Firebase Firestore  
-- Firebase Admin SDK  
-- Material Design 3  
-- Google Fonts & Material Symbols  
-
----
-
-## 🏗️ Tech Stack
+## 🛠️ Tech Stack
 
 ### Frontend
-- React 18 (TypeScript)
-- Tailwind CSS
-- Material Design 3
+- **Framework:** React 18 (TypeScript)
+- **Styling:** Tailwind CSS (Dark Mode supported)
+- **Maps:** Leaflet & React-Leaflet
+- **Charts:** Recharts
 
-### Backend
-- Firebase Firestore
-- Firebase Admin SDK
-
-### AI
-- Google Gemini models via GenAI SDK
-
----
-
-## 👨‍👩‍👧‍👦 Team Contributions
-
-AI & Product Design: Concept, AI workflows, Gemini integration logic, UX flow, documentation
-
-Backend & Deployment: Firebase integration, API setup, backend logic, deployment
-
-## 🔮 Future Scope
-
-Multi-institution federation
-
-Predictive risk forecasting
-
-Deeper SAP workflow automation
-
-Mobile-first reporting
-
-Cost-impact analytics
-
-## 📜 License
-
-This project was developed as part of a hackathon and is intended for educational and demonstration purposes.
-
+### Backend & Services
+- **Auth & Database:** Google Firebase (Authentication & Cloud Firestore)
+- **AI Models:** Google GenAI SDK (`@google/genai`)
+- **Hosting:** Client-side SPA (can be hosted on Vercel, Netlify, or Firebase Hosting)
 
 ---
 
+## 🏗️ Architecture
+
+The application follows a **Serverless Thick-Client** architecture:
+
+1.  **Client:** The React app manages state (`AppContext`) and UI logic.
+2.  **AI Layer:** The client communicates directly with Google's GenAI API for text and multimodal analysis.
+3.  **Data Layer:** Firebase Firestore pushes real-time updates to the dashboard via listeners.
+
+| Component | Model / Service | Purpose |
+| :--- | :--- | :--- |
+| **ChatBot** | `gemini-3-pro-preview` | General assistance and safety advice. |
+| **Map Intel** | `gemini-2.5-flash` | Geo-grounding and location-specific safety data. |
+| **Case Analysis** | `gemini-3-flash-preview` | Aggregating raw signals into actionable insights. |
+| **Database** | Firebase Firestore | Storing signals, users, and notifications. |
+
+---
+
+## ⚙️ Installation & Setup
+
+### Prerequisites
+- Node.js (v18+)
+- A Google Cloud Project with the **Gemini API** enabled.
+- A Firebase Project.
+
+### 1. Clone the Repository
+```bash
+git clone https://github.com/yourusername/earlyshield-campus.git
+cd earlyshield-campus
