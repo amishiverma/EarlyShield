@@ -1,0 +1,7 @@
+{
+  "name": "final EarlyShield Campus",
+  "description": "An AI-powered campus intelligence and risk management dashboard featuring real-time signal reporting, interactive risk maps, and case management.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EarlyShield Campus</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Inter:wght@300;400;500;600&family=Product+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
+
+    <!-- Leaflet CSS & JS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              primary: "var(--color-primary)",
+              "primary-container": "var(--color-primary-container)",
+              "on-primary-container": "var(--color-on-primary-container)",
+              surface: "var(--color-surface)",
+              "surface-variant": "var(--color-surface-variant)",
+              background: "var(--color-background)",
+              "risk-high": "#B3261E",
+              "risk-med": "#EA8600",
+              "risk-low": "#146C2E",
+              "text-main": "var(--color-text-main)",
+              "text-secondary": "var(--color-text-secondary)",
+            },
+            fontFamily: {
+              sans: ["Inter", "sans-serif"],
+              display: ["Google Sans", "Product Sans", "sans-serif"],
+            },
+            borderRadius: {
+              'm3': '1.75rem', // 28px
+              'm3-sm': '0.75rem', // 12px
+              'm3-xs': '0.5rem', // 8px
+            },
+            boxShadow: {
+              'm3-1': '0px 1px 2px 0px rgba(0, 0, 0, 0.3), 0px 1px 3px 1px rgba(0, 0, 0, 0.15)',
+              'm3-2': '0px 1px 2px 0px rgba(0, 0, 0, 0.3), 0px 2px 6px 2px rgba(0, 0, 0, 0.15)',
+            }
+          },
+        },
+      }
+    </script>
+    <style>
+      :root {
+        --color-primary: #0B57D0;
+        --color-primary-container: #D3E3FD;
+        --color-on-primary-container: #041E49;
+        --color-surface: #F7F9FC;
+        --color-surface-variant: #E1E2EC;
+        --color-background: #FDFBFF;
+        --color-text-main: #1F1F1F;
+        --color-text-secondary: #444746;
+      }
+
+      .dark {
+        --color-primary: #A8C7FA;
+        --color-primary-container: #0842A0;
+        --color-on-primary-container: #D3E3FD;
+        --color-surface: #1F1F1F;
+        --color-surface-variant: #444746;
+        --color-background: #121212;
+        --color-text-main: #E3E3E3;
+        --color-text-secondary: #C4C7C5;
+      }
+
+      body {
+        font-family: 'Inter', sans-serif;
+        background-color: var(--color-background);
+        color: var(--color-text-main);
+      }
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .icon-filled {
+        font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .no-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+      .no-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+      
+      /* Map Fixes */
+      .leaflet-container {
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+      }
+      .custom-div-icon {
+        background: transparent;
+        border: none;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@18.2.0",
+    "react/": "https://esm.sh/react@18.2.0/",
+    "react-dom": "https://esm.sh/react-dom@18.2.0",
+    "react-dom/client": "https://esm.sh/react-dom@18.2.0/client",
+    "react-router-dom": "https://esm.sh/react-router-dom@6.22.3?deps=react@18.2.0,react-dom@18.2.0",
+    "recharts": "https://esm.sh/recharts@2.12.3?deps=react@18.2.0,react-dom@18.2.0",
+    "react-leaflet": "https://esm.sh/react-leaflet@4.2.1?deps=react@18.2.0,react-dom@18.2.0,leaflet@1.9.4",
+    "leaflet": "https://esm.sh/leaflet@1.9.4",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "@google/genai": "https://esm.sh/@google/genai@^1.37.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
