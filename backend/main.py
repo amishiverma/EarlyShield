@@ -24,6 +24,7 @@ app = FastAPI(
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
+        "https://easy-shield.vercel.app",
         "https://frontend-flax-five-30.vercel.app",
         "https://earlyshield.onrender.com",
         "http://127.0.0.1:3000",
