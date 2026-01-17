@@ -1,8 +1,13 @@
 import { GoogleGenAI } from "@google/genai";
 
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+// Use Vite's import.meta.env for environment variables
+const apiKey = import.meta.env.VITE_GEMINI_API_KEY || import.meta.env.VITE_API_KEY;
+const ai = apiKey ? new GoogleGenAI({ apiKey }) : null;
 
 export const chatWithGemini = async (history: { role: string; parts: string }[], message: string) => {
+  if (!ai) {
+    throw new Error("AI service is not configured. Please set VITE_GEMINI_API_KEY in your .env file.");
+  }
   try {
     const chat = ai.chats.create({
       model: 'gemini-3-pro-preview',
@@ -24,6 +29,9 @@ export const chatWithGemini = async (history: { role: string; parts: string }[],
 };
 
 export const analyzeRiskZone = async (zoneName: string, currentRisk: string) => {
+  if (!ai) {
+    return "AI service is not configured. Using cached protocols.";
+  }
   try {
     // Gemini 2.5 Flash supports Google Maps Grounding
     const response = await ai.models.generateContent({
@@ -44,9 +52,12 @@ export const analyzeRiskZone = async (zoneName: string, currentRisk: string) => 
 };
 
 export const analyzeCaseSignals = async (signals: any[]) => {
+  if (!ai) {
+    return "AI Analysis unavailable - service not configured.";
+  }
   try {
     const signalText = signals.map(s => `- [${s.timestamp}] ${s.title}: ${s.description}`).join('\n');
-    
+
     const response = await ai.models.generateContent({
       model: 'gemini-3-flash-preview',
       contents: `Analyze these risk signals received from campus:
