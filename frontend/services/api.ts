@@ -5,7 +5,7 @@
 
 import { Signal, Zone, Stats, User } from '../types';
 
-const API_BASE_URL = import.meta.env.VITE_API_URL || 'https://earlyshield.onrender.com';
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'https://earlyshield.onrender.com/api';
 
 // Generic fetch wrapper with error handling
 async function fetchAPI<T>(
