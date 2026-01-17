@@ -156,3 +156,7 @@ Deeper SAP workflow automation
 Mobile-first reporting
 
 Cost-impact analytics
+
+📜 License
+
+This project is developed as part of a hackathon and is intended for educational and demonstration purposes.
